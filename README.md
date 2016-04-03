@@ -1,3 +1,3 @@
 # web-netstat
-Web based network statistics - not ready!
+Web based network statistics
 
