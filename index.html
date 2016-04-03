@@ -3,19 +3,30 @@
     <head>
         <title>WebNetstat </title>
     </head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
     <body>
+        <pre>      Local addr:port       Remote addr:port  Status          Rx/Q    Tx/Q</pre>
         <script>
             var ws = new WebSocket("ws://127.0.0.1:5555/"),
-                messages = document.createElement('ul');
+            messages = document.createElement('ul');
+            messages.setAttribute('id', 'listContainer');
+
             ws.onmessage = function (event) {
-                var messages = document.getElementsByTagName('ul')[0],
+                var messages = document.getElementById('listContainer'),
                     message = document.createElement('li'),
                     content = document.createTextNode(event.data);
+                    if (event.data == 'end') {
+                        messages.innerHTML = '';
+                        return;
+                    };
                 message.appendChild(content);
                 messages.appendChild(message);
-
             };
             document.body.appendChild(messages);
         </script>
     </body>
 </html>
+
+<script>
+
+</script>

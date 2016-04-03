@@ -11,6 +11,7 @@ def time(websocket, path):
         for stat in netstat:
             yield from websocket.send(stat)
         yield from asyncio.sleep(1)
+        yield from websocket.send('end')
 
 start_server = websockets.serve(time, '127.0.0.1', 5555)
 

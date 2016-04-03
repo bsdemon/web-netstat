@@ -47,9 +47,12 @@ def tcp_stat():
         tx_queue = queue[0]
         rx_queue = queue[1]
         # print('{0:21}| {1:21} | {2:14}| {3}| {4}'.format(local, remote, state, tx_queue, rx_queue, connection[5]))
-        formated_conn = local+' <=== '+remote+' | '+state+' | '+tx_queue+' | '+rx_queue
+        formated_conn = local+' <=== '+remote+' |----| '+state+' | '+tx_queue+' | '+rx_queue
         result.append((formated_conn))
     return result
+
+
+### print in console ###
 
 # while True:
 #     os.system('cls' if os.name == 'nt' else 'clear')
